@@ -1,0 +1,310 @@
+/* pendalaman.css: tab Pendalaman */
+.pd-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 0 0 24px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scrollbar-width: thin
+}
+
+.pd-tabs button,
+.pd-pk button {
+    flex: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1.5px solid var(--ink);
+    background: none;
+    color: var(--ink);
+    font: 700 15px var(--b);
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.pd-tabs button:hover,
+.pd-pk button:hover {
+    background: rgba(12, 15, 14, .08)
+}
+
+.pd-tabs button[aria-selected=true] {
+    background: var(--ink);
+    color: var(--cream)
+}
+
+.pd-pk {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px
+}
+
+.pd-pk button[aria-pressed=true] {
+    background: var(--teal);
+    border-color: var(--ink)
+}
+
+.pd-card {
+    display: grid;
+    gap: 16px;
+    padding: clamp(18px, 3vw, 32px);
+    border: 1.5px solid var(--ink);
+    border-radius: 24px;
+    background: var(--paper);
+    color: var(--ink)
+}
+
+.pd-card h3 {
+    font: 900 clamp(30px, 5vw, 52px)/1 var(--d);
+    text-transform: uppercase;
+    color: var(--ink)
+}
+
+.pd-card p,
+.pd-card li,
+.pd-card dd,
+.pd-card dt {
+    font-size: 17px;
+    line-height: 1.55;
+    max-width: none;
+    color: inherit
+}
+
+.pd-card ul {
+    padding-left: 20px;
+    display: grid;
+    gap: 6px
+}
+
+.pd-bl {
+    display: grid;
+    gap: 6px;
+    padding: 4px 0 4px 16px;
+    border-left: 4px solid var(--teal)
+}
+
+.pd-bl.buku {
+    border-color: var(--ink)
+}
+
+.pd-bl.catatan {
+    border-color: #e0a82e;
+    background: rgba(224, 168, 46, .14);
+    padding: 12px 16px;
+    border-radius: 0 12px 12px 0
+}
+
+.pd-bl.inti {
+    border: 0;
+    border-radius: 14px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 14px 18px
+}
+
+.pd-bl.inti .pd-tag {
+    color: var(--teal)
+}
+
+.pd-tag {
+    font: 700 12px var(--b);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mut)
+}
+
+.pd-w {
+    display: grid;
+    gap: 12px;
+    padding: 18px;
+    border: 1.5px dashed var(--ink);
+    border-radius: 16px;
+    background: #fff
+}
+
+.pd-out {
+    display: grid;
+    gap: 4px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: var(--cream)
+}
+
+.pd-out b {
+    font-size: 18px
+}
+
+.pd-note {
+    font: 700 13px var(--b);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mut)
+}
+
+.pd-btn {
+    justify-self: start;
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: 0;
+    background: var(--ink);
+    color: var(--cream);
+    font: 700 15px var(--b);
+    cursor: pointer
+}
+
+.pd-btn:hover:not(:disabled) {
+    background: #1d2321
+}
+
+.pd-btn:disabled {
+    opacity: .45;
+    cursor: default
+}
+
+.pd-2 {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+}
+
+.pd-box {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    padding: 14px;
+    border: 1.5px solid var(--ink);
+    border-radius: 12px;
+    background: var(--paper);
+    transition: opacity .3s
+}
+
+.pd-box b {
+    font: 900 24px/1 var(--d);
+    text-transform: uppercase
+}
+
+.pd-box small {
+    font: 700 12px var(--b);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mut)
+}
+
+.pd-box i {
+    font-style: normal;
+    font-size: 16px
+}
+
+.pd-box.pd-gone i {
+    opacity: .35;
+    text-decoration: line-through
+}
+
+.pd-dl {
+    display: grid;
+    gap: 10px
+}
+
+.pd-dl dt {
+    font-weight: 800
+}
+
+.pd-bits {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    text-align: center
+}
+
+.pd-bits button {
+    width: 100%;
+    aspect-ratio: 1;
+    min-height: 40px;
+    border-radius: 10px;
+    border: 1.5px solid var(--ink);
+    background: var(--cream);
+    color: var(--ink);
+    font: 700 22px monospace;
+    cursor: pointer
+}
+
+.pd-bits button[aria-pressed=true] {
+    background: var(--ink);
+    color: var(--teal)
+}
+
+.pd-bits small {
+    display: block;
+    margin-top: 4px;
+    font: 600 12px monospace;
+    color: var(--mut)
+}
+
+.pd-term {
+    margin: 0;
+    padding: 14px;
+    border-radius: 12px;
+    background: #0c0f0e;
+    color: #14d4be;
+    font: 600 15px monospace;
+    white-space: pre-wrap
+}
+
+.pd-gui {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px
+}
+
+.pd-gui span {
+    padding: 8px 14px;
+    border: 1.5px solid var(--ink);
+    border-radius: 8px;
+    background: #fff;
+    font-weight: 700
+}
+
+@media (max-width: 700px) {
+
+    .pd-card p,
+    .pd-card li {
+        font-size: 16px
+    }
+
+    .pd-bits {
+        gap: 4px
+    }
+}
+
+.pd-term {
+    max-height: 200px;
+    overflow: auto
+}
+
+.pd-cmd {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: #0c0f0e
+}
+
+.pd-cmd span {
+    color: #14d4be;
+    font: 600 15px monospace;
+    white-space: nowrap
+}
+
+.pd-cmd input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: none;
+    color: #fff;
+    font: 600 15px monospace
+}
+
+.pd-tip button {
+    padding: 6px 12px;
+    font: 600 13px monospace
+}

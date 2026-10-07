@@ -1,0 +1,150 @@
+/* tone.css: tiap tab punya warna sendiri (bingkai, section gelap, panggung 3D). Beranda terang. */
+:root {
+    --circ: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cstyle%3Eg%7Bfill:none;stroke:%23c4faf2;stroke-opacity:0.12;stroke-width:1.5%7D.c%7Bstroke-opacity:0.16%7D.d%7Bfill:%23c4faf2;fill-opacity:0.12;stroke:none%7D%3C/style%3E%3Cg%3E%3Cpath d=%22M0 100 L140 100 L180 140 L180 260 L220 300 L340 300 L380 260 L380 140 L420 100 L480 100%22/%3E%3Ccircle cx=%22180%22 cy=%22200%22 r=%224.5%22/%3E%3Cpath d=%22M0 420 L150 420 L190 380 L300 380 L340 420 L480 420%22/%3E%3Cpath d=%22M0 432 L150 432 L190 392 L300 392 L340 432 L480 432%22/%3E%3Cpath d=%22M0 444 L150 444 L190 404 L300 404 L340 444 L480 444%22/%3E%3Cpath d=%22M60 0 L60 150 L90 180 L90 330 L60 360 L60 480%22/%3E%3Ccircle cx=%2290%22 cy=%22250%22 r=%224.5%22/%3E%3Crect x=%22270%22 y=%22140%22 width=%2256%22 height=%2256%22 rx=%223%22 class=%22c%22/%3E%3Cpath d=%22M282 140v-7M282 196v7M270 152h-7M326 152h7%22 class=%22c%22/%3E%3Cpath d=%22M296 140v-7M296 196v7M270 166h-7M326 166h7%22 class=%22c%22/%3E%3Cpath d=%22M310 140v-7M310 196v7M270 180h-7M326 180h7%22 class=%22c%22/%3E%3Cpath d=%22M324 140v-7M324 196v7M270 194h-7M326 194h7%22 class=%22c%22/%3E%3Cpath d=%22M263 152 L240 152 L220 172 L220 230%22/%3E%3Ccircle cx=%22220%22 cy=%22236%22 r=%224.5%22/%3E%3Cpath d=%22M333 166 L350 166 L350 200%22/%3E%3Ccircle cx=%22350%22 cy=%22206%22 r=%224.5%22/%3E%3Ccircle cx=%22430%22 cy=%2214%22 r=%224.5%22/%3E%3Cpath d=%22M430 18 L430 40 L460 70%22/%3E%3Ccircle cx=%22460%22 cy=%2276%22 r=%224.5%22/%3E%3Ccircle cx=%22250%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3Ccircle cx=%22262%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3Ccircle cx=%22274%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3C/g%3E%3C/svg%3E");
+    --circ-d: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cstyle%3Eg%7Bfill:none;stroke:%23c4faf2;stroke-opacity:0.09;stroke-width:1.5%7D.c%7Bstroke-opacity:0.12%7D.d%7Bfill:%23c4faf2;fill-opacity:0.09;stroke:none%7D%3C/style%3E%3Cg%3E%3Cpath d=%22M0 100 L140 100 L180 140 L180 260 L220 300 L340 300 L380 260 L380 140 L420 100 L480 100%22/%3E%3Ccircle cx=%22180%22 cy=%22200%22 r=%224.5%22/%3E%3Cpath d=%22M0 420 L150 420 L190 380 L300 380 L340 420 L480 420%22/%3E%3Cpath d=%22M0 432 L150 432 L190 392 L300 392 L340 432 L480 432%22/%3E%3Cpath d=%22M0 444 L150 444 L190 404 L300 404 L340 444 L480 444%22/%3E%3Cpath d=%22M60 0 L60 150 L90 180 L90 330 L60 360 L60 480%22/%3E%3Ccircle cx=%2290%22 cy=%22250%22 r=%224.5%22/%3E%3Crect x=%22270%22 y=%22140%22 width=%2256%22 height=%2256%22 rx=%223%22 class=%22c%22/%3E%3Cpath d=%22M282 140v-7M282 196v7M270 152h-7M326 152h7%22 class=%22c%22/%3E%3Cpath d=%22M296 140v-7M296 196v7M270 166h-7M326 166h7%22 class=%22c%22/%3E%3Cpath d=%22M310 140v-7M310 196v7M270 180h-7M326 180h7%22 class=%22c%22/%3E%3Cpath d=%22M324 140v-7M324 196v7M270 194h-7M326 194h7%22 class=%22c%22/%3E%3Cpath d=%22M263 152 L240 152 L220 172 L220 230%22/%3E%3Ccircle cx=%22220%22 cy=%22236%22 r=%224.5%22/%3E%3Cpath d=%22M333 166 L350 166 L350 200%22/%3E%3Ccircle cx=%22350%22 cy=%22206%22 r=%224.5%22/%3E%3Ccircle cx=%22430%22 cy=%2214%22 r=%224.5%22/%3E%3Cpath d=%22M430 18 L430 40 L460 70%22/%3E%3Ccircle cx=%22460%22 cy=%2276%22 r=%224.5%22/%3E%3Ccircle cx=%22250%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3Ccircle cx=%22262%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3Ccircle cx=%22274%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3C/g%3E%3C/svg%3E")
+}
+
+:root {
+    --frame: #247b6e;
+    --deep: #1c6a5e;
+    --deep-2: #26806f;
+    --deep-line: #6cc0af;
+    --deep-3: #14594d;
+    --st1: #86d6c8;
+    --st2: #449a8a;
+    --st3: #27725f
+}
+
+:root:has(main[data-g="jelajah"]) {
+    --frame: #b8531f;
+    --deep: #8f3f15;
+    --deep-2: #a24a1b;
+    --deep-line: #e08a55;
+    --deep-3: #6e2f0e;
+    --st1: #f2a36f;
+    --st2: #cf6d33;
+    --st3: #98461a
+}
+
+:root:has(main[data-g="praktik"]) {
+    --frame: #2f5f9a;
+    --deep: #274f82;
+    --deep-2: #33649f;
+    --deep-line: #7aa6d6;
+    --deep-3: #1c3b63;
+    --st1: #9fc3ea;
+    --st2: #5b8cc4;
+    --st3: #3a6aa5
+}
+
+:root:has(main[data-g="uji"]) {
+    --frame: #7d6613;
+    --deep: #665310;
+    --deep-2: #7a6518;
+    --deep-line: #c2a947;
+    --deep-3: #4d3f0b;
+    --st1: #e3cf7e;
+    --st2: #b39a35;
+    --st3: #85701c
+}
+
+:root:has(main[data-g="beranda"]) {
+    --frame: #d3efe8;
+    --circ: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cstyle%3Eg%7Bfill:none;stroke:%230e6b5f;stroke-opacity:.1;stroke-width:1.5%7D.c%7Bstroke-opacity:0.16%7D.d%7Bfill:%230e6b5f;fill-opacity:0.12;stroke:none%7D%3C/style%3E%3Cg%3E%3Cpath d=%22M0 100 L140 100 L180 140 L180 260 L220 300 L340 300 L380 260 L380 140 L420 100 L480 100%22/%3E%3Ccircle cx=%22180%22 cy=%22200%22 r=%224.5%22/%3E%3Cpath d=%22M0 420 L150 420 L190 380 L300 380 L340 420 L480 420%22/%3E%3Cpath d=%22M0 432 L150 432 L190 392 L300 392 L340 432 L480 432%22/%3E%3Cpath d=%22M0 444 L150 444 L190 404 L300 404 L340 444 L480 444%22/%3E%3Cpath d=%22M60 0 L60 150 L90 180 L90 330 L60 360 L60 480%22/%3E%3Ccircle cx=%2290%22 cy=%22250%22 r=%224.5%22/%3E%3Crect x=%22270%22 y=%22140%22 width=%2256%22 height=%2256%22 rx=%223%22 class=%22c%22/%3E%3Cpath d=%22M282 140v-7M282 196v7M270 152h-7M326 152h7%22 class=%22c%22/%3E%3Cpath d=%22M296 140v-7M296 196v7M270 166h-7M326 166h7%22 class=%22c%22/%3E%3Cpath d=%22M310 140v-7M310 196v7M270 180h-7M326 180h7%22 class=%22c%22/%3E%3Cpath d=%22M324 140v-7M324 196v7M270 194h-7M326 194h7%22 class=%22c%22/%3E%3Cpath d=%22M263 152 L240 152 L220 172 L220 230%22/%3E%3Ccircle cx=%22220%22 cy=%22236%22 r=%224.5%22/%3E%3Cpath d=%22M333 166 L350 166 L350 200%22/%3E%3Ccircle cx=%22350%22 cy=%22206%22 r=%224.5%22/%3E%3Ccircle cx=%22430%22 cy=%2214%22 r=%224.5%22/%3E%3Cpath d=%22M430 18 L430 40 L460 70%22/%3E%3Ccircle cx=%22460%22 cy=%2276%22 r=%224.5%22/%3E%3Ccircle cx=%22250%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3Ccircle cx=%22262%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3Ccircle cx=%22274%22 cy=%22460%22 r=%222.4%22 class=%22d%22/%3E%3C/g%3E%3C/svg%3E")
+}
+
+:root:has(main[data-g="beranda"]) .logo {
+    color: var(--ink)
+}
+
+/* bingkai dasar + pola sirkuit (satu tile SVG statis, tanpa JS) */
+html {
+    background-color: var(--frame);
+    background-image: var(--circ);
+    background-size: 480px
+}
+
+body {
+    background: transparent
+}
+
+main>.dark {
+    background-color: var(--deep);
+    background-image: var(--circ-d);
+    background-size: 480px
+}
+
+.xm-card {
+    background: var(--deep)
+}
+
+.stage,
+.vh,
+.xm-st3.vh {
+    background: radial-gradient(ellipse at 50% 40%, var(--st1) 0%, var(--st2) 52%, var(--st3) 100%)
+}
+
+.parts button,
+.lay-stack button {
+    background: var(--deep-2);
+    border-color: var(--deep-line)
+}
+
+.parts button:hover,
+.lay-stack button:hover {
+    border-color: var(--teal)
+}
+
+.parts button[aria-pressed=true],
+.lay-stack button[aria-pressed=true] {
+    background: var(--teal);
+    border-color: var(--teal)
+}
+
+.pdesc {
+    background: var(--deep-3)
+}
+
+.dark p,
+.lay-side p,
+.pfact {
+    color: #eef8f5
+}
+
+/* menu Beranda: tiap tab satu warna, selaras dengan warna bingkai tabnya */
+.rmenu .rrow {
+    --rc: #247b6e;
+    background: var(--rc);
+    color: var(--cream);
+    border: 0;
+    border-radius: 22px;
+    padding-inline: clamp(20px, 3vw, 44px)
+}
+
+.rmenu .rrow:nth-child(2) {
+    --rc: #b8531f
+}
+
+.rmenu .rrow:nth-child(3) {
+    --rc: #2f5f9a
+}
+
+.rmenu .rrow:nth-child(4) {
+    --rc: #7d6613
+}
+
+.rmenu .rrow+.rrow {
+    margin-top: 12px
+}
+
+.rmenu .rrow span {
+    opacity: .85
+}
+
+.rmenu .rrow:hover,
+.rmenu .rrow:focus-visible {
+    background: var(--rc);
+    color: var(--cream);
+    padding-inline: clamp(28px, 4vw, 60px);
+    translate: 0 -3px
+}

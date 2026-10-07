@@ -1,0 +1,103 @@
+/* contoh.css: penjelasan rinci di modal contoh Hardware dan Software */
+.xi {
+    margin-top: 18px;
+    display: grid;
+    gap: 10px
+}
+
+.xi-k {
+    justify-self: start;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--teal);
+    color: var(--ink);
+    font: 700 12px var(--b);
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.xi .dd {
+    border-top-color: rgba(255, 255, 255, .3)
+}
+
+.xi .dd>summary::after {
+    background: var(--teal);
+    color: var(--ink)
+}
+
+.xi-dl {
+    display: grid;
+    gap: 4px 0;
+    padding-bottom: 12px
+}
+
+.xi-dl dt {
+    margin-top: 12px;
+    font: 700 12px var(--b);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--st1, var(--teal))
+}
+
+.xi-dl dd,
+.xi-dl li {
+    font-size: 16px;
+    line-height: 1.55;
+    color: #eef8f5;
+    max-width: 66ch
+}
+
+.xi-dl ul,
+.xi-dl ol {
+    padding-left: 20px;
+    display: grid;
+    gap: 4px
+}
+
+/* kotak penjelasan di halaman Bongkar: beri ruang antara teks dan kotak */
+.pdesc {
+    padding: 22px 26px;
+    border: 0;
+    border-radius: 16px
+}
+
+.pfact {
+    padding: 16px 4px 0
+}
+
+/* slider bongkar di modal contoh hardware */
+.xm-sl {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    color: #eef8f5;
+    font: 700 14px var(--b)
+}
+
+.xm-sl[hidden] {
+    display: none
+}
+
+.xm-sl input {
+    flex: 1;
+    min-width: 0;
+    accent-color: var(--teal)
+}
+
+/* dock navigasi bawah: sembunyi saat menggulir turun */
+.pill nav {
+    transition: translate .35s cubic-bezier(.2, .8, .2, 1), opacity .25s
+}
+
+.pill:not(.open) nav.nav-hide {
+    translate: -50% calc(100% + 40px);
+    opacity: 0;
+    pointer-events: none
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pill nav {
+        transition: none
+    }
+}

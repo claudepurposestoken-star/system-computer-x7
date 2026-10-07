@@ -1,0 +1,681 @@
+/* ================================================================
+   visual.css — bagian "Ilustrasi" (3D) dan "Alur" (anime.js)
+   Memakai token warna/spasi dari style.css
+   ================================================================ */
+
+.vz-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.vz-section>.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Orb dekoratif — digerakkan Trig.js lewat --trig (hanya efek halus) */
+.vz-orb {
+    position: absolute;
+    top: 8%;
+    right: -8%;
+    width: 46vw;
+    max-width: 560px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-primary-glow), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    transform: translateY(calc(var(--trig, 0%) * 0.4));
+}
+
+/* Reveal Trig.js — hanya aktif jika Trig.js berhasil dimuat (kelas .trig-ready) */
+.trig-ready .vz-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
+}
+
+.trig-ready .vz-reveal.trig {
+    opacity: 1;
+    transform: none;
+}
+
+/* ---------------- ILUSTRASI ---------------- */
+.anat-layout {
+    display: grid;
+    gap: var(--sp-5);
+    grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1024px) {
+    .anat-layout {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        gap: var(--sp-6);
+        align-items: stretch;
+    }
+}
+
+.anat-stage {
+    position: relative;
+    height: 420px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 40%, rgba(74, 124, 247, .16), transparent 62%),
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px) 0 0 / 32px 32px,
+        var(--color-surface);
+}
+
+@media (min-width: 768px) {
+    .anat-stage {
+        height: 520px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .anat-stage {
+        height: auto;
+        min-height: 560px;
+    }
+}
+
+#anat-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+    touch-action: pan-y;
+}
+
+#anat-canvas.is-drag {
+    cursor: grabbing;
+}
+
+#anat-canvas.is-hover {
+    cursor: pointer;
+}
+
+.anat-tip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    backdrop-filter: blur(8px);
+    font: 500 var(--text-xs) var(--font-mono);
+    color: var(--color-text-1);
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(12px, -28px);
+    transition: opacity .15s;
+    white-space: nowrap;
+}
+
+.anat-tip.on {
+    opacity: 1;
+}
+
+.anat-hint {
+    position: absolute;
+    top: var(--sp-4);
+    left: var(--sp-4);
+    font: var(--text-xs) var(--font-mono);
+    letter-spacing: .06em;
+    color: var(--color-text-3);
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.anat-controls {
+    position: absolute;
+    left: var(--sp-4);
+    right: var(--sp-4);
+    bottom: var(--sp-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    align-items: center;
+    padding: var(--sp-3);
+    border-radius: var(--radius-lg);
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.anat-controls .btn-secondary {
+    padding: 8px 16px;
+    font-size: var(--text-sm);
+}
+
+.anat-slider {
+    flex: 1;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    font: var(--text-xs) var(--font-mono);
+    color: var(--color-text-2);
+}
+
+.anat-slider input {
+    flex: 1;
+    accent-color: var(--color-primary);
+}
+
+.anat-fallback {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--sp-6);
+    color: var(--color-text-2);
+    font-size: var(--text-sm);
+    line-height: var(--lh-loose);
+}
+
+.anat-stage.no-3d .anat-fallback {
+    display: flex;
+}
+
+.anat-stage.no-3d #anat-canvas,
+.anat-stage.no-3d .anat-hint,
+.anat-stage.no-3d .anat-controls {
+    display: none;
+}
+
+.anat-side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    min-width: 0;
+}
+
+.anat-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+}
+
+.anat-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: var(--radius-full);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-2);
+    font: 500 var(--text-sm) var(--font-body);
+    cursor: pointer;
+    transition: border-color var(--dur-fast), color var(--dur-fast), background var(--dur-fast), transform var(--dur-fast);
+}
+
+.anat-chip i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--c, var(--color-primary));
+    box-shadow: 0 0 8px var(--c, var(--color-primary));
+}
+
+.anat-chip:hover {
+    color: var(--color-text-1);
+    border-color: var(--c, var(--color-primary));
+    transform: translateY(-1px);
+}
+
+.anat-chip[aria-pressed="true"] {
+    color: var(--color-text-1);
+    border-color: var(--c, var(--color-primary));
+    background: var(--color-surface-raised);
+}
+
+.anat-chip:focus-visible,
+.flow-chip:focus-visible,
+.flow-node:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+.anat-panel {
+    flex: 1;
+    padding: var(--sp-5);
+    border-radius: var(--radius-xl);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    position: relative;
+    min-height: 280px;
+}
+
+.anat-panel__empty {
+    height: 100%;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    text-align: center;
+    color: var(--color-text-3);
+    font-size: var(--text-sm);
+}
+
+.anat-panel__empty svg {
+    width: 40px;
+    height: 40px;
+}
+
+.anat-panel__body {
+    display: none;
+}
+
+.anat-panel.has-item .anat-panel__empty {
+    display: none;
+}
+
+.anat-panel.has-item .anat-panel__body {
+    display: block;
+}
+
+.anat-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font: 500 var(--text-xs) var(--font-mono);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--c);
+    background: color-mix(in srgb, var(--c) 14%, transparent);
+}
+
+.anat-name {
+    margin: var(--sp-3) 0 var(--sp-2);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text-1);
+    line-height: var(--lh-snug);
+}
+
+.anat-row {
+    margin-top: var(--sp-4);
+}
+
+.anat-label {
+    font: var(--text-xs) var(--font-mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--color-text-3);
+    margin-bottom: var(--sp-1);
+}
+
+.anat-text {
+    font-size: var(--text-sm);
+    line-height: var(--lh-loose);
+    color: var(--color-text-2);
+}
+
+.anat-fact {
+    border-left: 2px solid var(--c);
+    padding: var(--sp-2) var(--sp-4);
+    background: var(--color-surface);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.anat-conn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+}
+
+.anat-conn span {
+    padding: 3px 10px;
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+    color: var(--color-text-2);
+    font: var(--text-xs) var(--font-mono);
+}
+
+/* ---------------- ALUR ---------------- */
+.flow-top {
+    display: grid;
+    gap: var(--sp-5);
+    margin-bottom: var(--sp-6);
+    grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 900px) {
+    .flow-top {
+        grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+        align-items: stretch;
+    }
+}
+
+.flow-card {
+    padding: var(--sp-5);
+    border-radius: var(--radius-xl);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+}
+
+.flow-card label,
+.flow-card .flow-k {
+    display: block;
+    font: var(--text-xs) var(--font-mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--color-text-3);
+    margin-bottom: var(--sp-2);
+}
+
+#flow-char {
+    width: 100%;
+    height: 72px;
+    text-align: center;
+    font: 600 36px var(--font-mono);
+    color: var(--color-text-1);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+
+#flow-char:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px var(--color-primary-glow);
+}
+
+.flow-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-top: var(--sp-3);
+}
+
+.flow-chip {
+    min-width: 40px;
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-2);
+    font: 500 var(--text-sm) var(--font-mono);
+    cursor: pointer;
+    transition: all var(--dur-fast);
+}
+
+.flow-chip:hover {
+    color: var(--color-text-1);
+    border-color: var(--color-primary);
+}
+
+.flow-note {
+    margin-top: var(--sp-3);
+    min-height: 2.8em;
+    font-size: var(--text-xs);
+    line-height: var(--lh-normal);
+    color: var(--color-text-3);
+}
+
+.flow-rep {
+    display: grid;
+    gap: var(--sp-4);
+}
+
+.flow-nums {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-5);
+}
+
+.flow-nums strong {
+    display: block;
+    font: 600 var(--text-2xl) var(--font-mono);
+    color: var(--color-text-1);
+}
+
+.flow-bits {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.flow-bit {
+    text-align: center;
+    perspective: 400px;
+}
+
+.flow-bit b {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    border-radius: var(--radius-md);
+    font: 600 var(--text-xl) var(--font-mono);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-3);
+}
+
+.flow-bit.on b {
+    color: #fff;
+    background: var(--color-primary-dim);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 14px var(--color-primary-glow);
+}
+
+.flow-bit small {
+    display: block;
+    margin-top: 4px;
+    font: var(--text-xs) var(--font-mono);
+    color: var(--color-text-3);
+}
+
+.flow-sum {
+    font: var(--text-sm) var(--font-mono);
+    color: var(--color-accent);
+    line-height: var(--lh-normal);
+}
+
+.flow-pipe {
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    padding: var(--sp-4) var(--sp-2);
+}
+
+.flow-pipe-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#flow-svg {
+    display: block;
+    width: 100%;
+    min-width: 720px;
+    height: auto;
+}
+
+.flow-node {
+    cursor: pointer;
+}
+
+.flow-node circle.ring {
+    fill: var(--color-surface-raised);
+    stroke-width: 2;
+    transition: fill .25s;
+}
+
+.flow-node.is-done circle.ring {
+    fill: var(--color-surface-hover);
+}
+
+.flow-node.is-active circle.ring {
+    fill: var(--color-surface-hover);
+}
+
+.flow-node text {
+    font-family: var(--font-mono);
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.flow-node .nn {
+    font-size: 13px;
+    fill: var(--color-text-2);
+}
+
+.flow-node .nl {
+    font-size: 12px;
+    fill: var(--color-text-2);
+}
+
+.flow-node.is-active .nl,
+.flow-node.is-active .nn {
+    fill: var(--color-text-1);
+}
+
+.flow-caption {
+    margin-top: var(--sp-5);
+    padding: var(--sp-5);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    min-height: 190px;
+}
+
+.flow-cap-step {
+    font: var(--text-xs) var(--font-mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.flow-cap-title {
+    margin: var(--sp-1) 0 var(--sp-2);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text-1);
+}
+
+.flow-cap-desc {
+    font-size: var(--text-sm);
+    line-height: var(--lh-loose);
+    color: var(--color-text-2);
+    max-width: 70ch;
+    margin-bottom: var(--sp-3);
+}
+
+.flow-cap-data {
+    display: inline-block;
+    padding: var(--sp-2) var(--sp-3);
+    border-radius: var(--radius-md);
+    background: var(--color-accent-dim);
+    border: 1px solid rgba(126, 184, 176, .15);
+    color: var(--color-accent);
+    font: var(--text-xs) var(--font-mono);
+    overflow-wrap: anywhere;
+}
+
+.flow-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-top: var(--sp-4);
+}
+
+.flow-source {
+    margin-top: var(--sp-3);
+    font-size: var(--text-xs);
+    color: var(--color-text-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .trig-ready .vz-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .vz-orb {
+        transform: none;
+    }
+}
+
+/* ---------------- TAB & MODEL DETAIL ---------------- */
+.det-tabs {
+    display: flex;
+    gap: var(--sp-5);
+    margin-bottom: var(--sp-5);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.det-tabs button {
+    padding: var(--sp-3) 0;
+    margin-bottom: -1px;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: var(--color-text-2);
+    font: 500 var(--text-base) var(--font-body);
+    cursor: pointer;
+    transition: color var(--dur-fast), border-color var(--dur-fast);
+}
+
+.det-tabs button:hover {
+    color: var(--color-text-1);
+}
+
+.det-tabs button[aria-selected="true"] {
+    color: var(--color-text-1);
+    border-bottom-color: var(--color-primary);
+}
+
+.det-tabs button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.det-mode .anat-list,
+.det-mode .anat-panel {
+    display: none;
+}
+
+.det-side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    min-width: 0;
+    flex: 1;
+}
+
+.det-side[hidden] {
+    display: none;
+}
+
+.det-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+}
+
+.det-panel {
+    flex: 1;
+    padding: var(--sp-5);
+    border-radius: var(--radius-xl);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    min-height: 280px;
+}
+
+.det-panel .anat-text {
+    max-width: 62ch;
+}

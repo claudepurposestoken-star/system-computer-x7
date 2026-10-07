@@ -1,0 +1,375 @@
+html.intro-lock {
+    overflow: hidden
+}
+
+html.intro-wait .hero__t {
+    opacity: 0
+}
+
+/* geometri sama dengan header + hero asli, supaya serah-terima mulus */
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    height: 100dvh;
+    overflow: hidden;
+    background: var(--cream);
+    color: var(--ink)
+}
+
+.intro.out {
+    background: transparent;
+    pointer-events: none
+}
+
+.intro__top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--pad);
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+    transition: transform .85s cubic-bezier(.7, 0, .2, 1)
+}
+
+.intro__top b {
+    font: 900 26px/1 var(--d);
+    text-transform: uppercase
+}
+
+.intro__top span {
+    font: 700 14px/1 var(--b);
+    letter-spacing: .12em;
+    text-transform: uppercase
+}
+
+.intro.out .intro__top {
+    transform: translateY(-110%)
+}
+
+.intro__win {
+    position: absolute;
+    top: 76px;
+    left: 12px;
+    right: 12px;
+    height: max(600px, calc(100svh - 88px));
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: var(--r);
+    background: linear-gradient(#3b72b8, #78a9d8 52%, #dcebf4);
+    animation: iwin 1s cubic-bezier(.16, 1, .3, 1) backwards;
+    transition: transform 1.2s cubic-bezier(.7, 0, .2, 1)
+}
+
+.intro.out .intro__win {
+    transform: translateY(-125%)
+}
+
+/* lapisan chip: paling depan, geometri sama dengan hero */
+.intro__fly {
+    position: fixed;
+    z-index: 1001;
+    top: 76px;
+    left: 12px;
+    right: 12px;
+    height: max(600px, calc(100svh - 88px));
+    border-radius: var(--r);
+    overflow: hidden;
+    pointer-events: none
+}
+
+/* pembungkus judul: geometri sama dengan jendela, tidak ikut terangkat */
+.intro__tw {
+    position: absolute;
+    top: 76px;
+    left: 12px;
+    right: 12px;
+    height: max(600px, calc(100svh - 88px));
+    z-index: 2;
+    pointer-events: none
+}
+
+/* ---- adegan berlapis ---- */
+.i-scene {
+    position: absolute;
+    inset: 0;
+    animation: idolly 4.5s cubic-bezier(.16, 1, .3, 1) backwards
+}
+
+.i-ly {
+    position: absolute;
+    inset: -3%;
+    display: block;
+    transform: scale(1.08);
+    background: center bottom / cover no-repeat
+}
+
+.i-sky {
+    background-image: url(intro-img/sky.jpg);
+    background-position: center
+}
+
+.i-far {
+    background-image: url(intro-img/far.webp)
+}
+
+.i-mid {
+    background-image: url(intro-img/mid.webp)
+}
+
+.i-near {
+    background-image: url(intro-img/near.webp)
+}
+
+.i-mist {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 38%;
+    background: url(intro-img/fog1.webp) repeat-x 0 100% / 50% 100%;
+    pointer-events: none;
+    animation: ifog 70s linear infinite
+}
+
+.i-m1 {
+    bottom: 0
+}
+
+.i-m2 {
+    bottom: 16%;
+    background-image: url(intro-img/fog2.webp);
+    opacity: .8;
+    animation-duration: 110s;
+    animation-direction: reverse
+}
+
+.i-bits {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden
+}
+
+.i-bits i {
+    position: absolute;
+    font-style: normal;
+    font-family: var(--d);
+    font-weight: 900;
+    color: rgba(255, 255, 255, .5);
+    animation: ibit linear infinite
+}
+
+/* ---- judul: gaya hero asli, diskalakan kecil lalu tumbuh ---- */
+.intro__t {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 19%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: .2em;
+    font: 900 clamp(64px, 15vw, 300px)/.85 var(--d);
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 4px 40px rgba(10, 30, 60, .3);
+    pointer-events: none;
+    transform: translateY(var(--ty, 0px)) scale(var(--s, .34));
+    transition: transform 1.5s cubic-bezier(.7, 0, .2, 1)
+}
+
+.intro.out .intro__t {
+    transform: none
+}
+
+.intro__t>span {
+    display: block;
+    animation: iword 1.2s cubic-bezier(.16, 1, .3, 1) backwards
+}
+
+.intro__t>span:nth-child(1) {
+    animation-delay: .5s
+}
+
+.intro__t>span:nth-child(2) {
+    animation-delay: .68s
+}
+
+/* tombol tengah bawah */
+.intro__go {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    width: fit-content;
+    bottom: clamp(24px, 6vh, 56px);
+    min-height: 52px;
+    padding-inline: 44px;
+    font-size: 18px;
+    background: var(--ink);
+    color: var(--cream);
+    animation: iup 1s 1.5s cubic-bezier(.16, 1, .3, 1) backwards
+}
+
+.intro__go::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    animation: iping 2.2s 2.5s ease-out infinite backwards;
+    pointer-events: none
+}
+
+/* isi hero asli masuk setelah latar splash memudar */
+html.intro-go .hero__by,
+html.intro-go .hero__foot {
+    animation: idrop 1.3s .45s cubic-bezier(.16, 1, .3, 1) both
+}
+
+@keyframes iwin {
+    from {
+        opacity: 0;
+        transform: translateY(32px) scale(.97)
+    }
+}
+
+@keyframes idolly {
+    from {
+        transform: scale(1.18)
+    }
+}
+
+@keyframes iword {
+    from {
+        opacity: 0;
+        filter: blur(14px);
+        transform: translateY(40px)
+    }
+}
+
+@keyframes iup {
+    from {
+        opacity: 0;
+        transform: translateY(24px)
+    }
+}
+
+@keyframes iping {
+    from {
+        opacity: .6;
+        transform: scale(1)
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.3, 1.6)
+    }
+}
+
+@keyframes ifog {
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+@keyframes ibit {
+    0% {
+        opacity: 0;
+        transform: translateY(0)
+    }
+
+    15% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-45dvh)
+    }
+}
+
+@keyframes idrop {
+    from {
+        transform: translateY(-90px);
+        opacity: 0
+    }
+
+    to {
+        transform: none;
+        opacity: 1
+    }
+}
+
+/* ponsel */
+@media (max-width: 700px) {
+    .intro__top {
+        height: 57px
+    }
+
+    .intro__top b {
+        font-size: 22px
+    }
+
+    .intro__top span {
+        display: none
+    }
+
+    .intro__win,
+    .intro__tw,
+    .intro__fly {
+        top: 64px;
+        left: 8px;
+        right: 8px;
+        height: max(560px, calc(100svh - 72px))
+    }
+
+    .intro__go {
+        width: min(300px, 100% - 48px);
+        padding-inline: 0;
+        display: block
+    }
+}
+
+@media (max-width: 600px) {
+    .intro__t {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        top: 22%;
+        font-size: clamp(64px, 19vw, 130px);
+        --s: .56
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .intro__win,
+    .i-scene,
+    .intro__t>span,
+    .intro__go,
+    .intro__go::after,
+    html.intro-go .hero__by,
+    html.intro-go .hero__foot {
+        animation: none !important
+    }
+
+    .intro__t,
+    .intro__win,
+    .intro__top {
+        transition-duration: .01s !important;
+        transition-delay: 0s !important
+    }
+
+    .i-bits {
+        display: none
+    }
+}

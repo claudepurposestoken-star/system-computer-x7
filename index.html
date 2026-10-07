@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id" class="intro-lock intro-wait">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F2EDE4">
+    <title>System Computer: Sistem Komputer Interaktif</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fx.css">
+    <link rel="stylesheet" href="Materi.css">
+    <link rel="stylesheet" href="extra.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="intro.css">
+    <link rel="stylesheet" href="tone.css">
+    <link rel="stylesheet" href="pendalaman.css">
+    <link rel="stylesheet" href="contoh.css">
+    <link rel="preload" as="image" href="intro-img/sky.jpg">
+</head>
+
+<body>
+    <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Selamat datang">
+        <div class="intro__top" aria-hidden="true"><b>System Computer</b><span>SMAN 5 Surabaya</span></div>
+        <div class="intro__win">
+            <div class="i-scene" aria-hidden="true">
+                <i class="i-ly i-sky" data-d="4"></i><i class="i-ly i-far" data-d="10"></i><i class="i-ly i-mid"
+                    data-d="18"></i>
+                <i class="i-ly i-near" data-d="32"></i>
+                <i class="i-mist i-m1"></i><i class="i-mist i-m2"></i>
+                <div class="i-bits"></div>
+            </div>
+            <button class="btn intro__go" type="button">Masuk</button>
+        </div>
+        <div class="intro__tw">
+            <h1 class="intro__t" aria-label="Sistem Komputer"><span>Sistem</span><span>Komputer</span></h1>
+        </div>
+    </div>
+    <script src="intro.js"></script>
+    <header class="pill">
+        <a class="logo" href="#beranda">System Computer</a>
+        <nav aria-label="Navigasi utama"><a href="#sistem">Sistem</a><a href="#jenis">Jenis</a><a
+                href="#ilustrasi">Ilustrasi</a><a href="#alur">Alur</a><a href="#gui">GUI</a><a href="#lab">Lab</a><a
+                href="#kuis">Kuis</a></nav>
+        <a class="cta" href="#ilustrasi">Mulai belajar</a>
+    </header>
+
+    <main>
+        <section class="hero" id="beranda" data-g="beranda" data-p="beranda">
+            <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="hill a"></div>
+            <div class="hill b"></div>
+            <div class="fog" aria-hidden="true"></div>
+            <div class="plat" aria-hidden="true"></div>
+            <div class="hero__by">
+                <p class="by-sch">SMAN 5 Surabaya</p>
+                <p class="by-nm"><span>Dibuat oleh</span><span>Muhammad Rohmatan (21)</span><span>Muhammad Indratanaya
+                        (19)</span><span>Kelas X-7</span></p>
+            </div>
+            <h1 class="hero__t"><span>Sistem</span><span>Komputer</span></h1>
+            <canvas id="chip" aria-hidden="true"></canvas>
+            <div class="hero__foot">
+                <p>Dari pad emas sampai inti silikon. Bongkar satu chip untuk melihat cara kerja komputer.</p>
+                <a class="btn" href="#ilustrasi">Bongkar chip</a>
+            </div>
+        </section>
+
+        <div class="marq" aria-hidden="true" data-g="beranda" data-p="beranda">
+            <div class="marq__t" id="mq"></div>
+        </div>
+
+        <section class="sec sys" id="sistem" data-g="belajar" data-p="sistem">
+            <h2>Komputer bekerja karena tiga unsur sekaligus</h2>
+            <div class="ring" id="ring" tabindex="0" role="group"
+                aria-label="Tiga unsur komputer. Gunakan panah kiri dan kanan untuk memutar.">
+                <div class="ring-in" id="ring-in"></div>
+            </div>
+            <p class="whint">Seret untuk memutar. Klik kartu depan untuk penjelasannya.</p>
+        </section>
+
+        <section class="sec" id="detail" data-g="belajar" data-p="sistem" hidden>
+            <div id="dbody"></div>
+            <button class="btn" id="dback">Kembali ke tiga unsur</button>
+        </section>
+
+        <section class="sec" id="jenis" data-g="belajar" data-p="jenis">
+            <h2>Jenis-jenis komputer, dari yang kecil sampai yang besar</h2>
+            <div class="jrail-wrap">
+                <div class="jrail" id="rail" role="tablist" aria-label="Jenis komputer"></div>
+            </div>
+            <div class="jbody" id="jbody" aria-live="polite"></div>
+            <div class="jdet" id="jdet"></div>
+            <h3 class="jsub" id="jsub"></h3>
+            <div class="cmp-wrap">
+                <table class="cmp" id="cmp"></table>
+            </div>
+            <p class="jnote" id="gadget"></p>
+        </section>
+
+        <section class="dark" id="ilustrasi" data-g="jelajah" data-p="ilustrasi">
+            <h2>Bongkar komponen, lihat bagian dalamnya</h2>
+            <div class="mtabs" id="mtabs" role="tablist" aria-label="Pilih komponen"></div>
+            <div class="xr">
+                <div class="stage">
+                    <i class="disc d1" aria-hidden="true"></i><i class="disc d2" aria-hidden="true"></i>
+                    <canvas id="xray" aria-label="Model 3D komponen yang bisa diputar"></canvas>
+                    <span class="hint">Seret untuk memutar. Ketuk bagian untuk menyorot.</span>
+                    <label>Rapat<input type="range" id="exp" min="0" max="1" step=".01" value=".6"
+                            aria-label="Jarak bongkar"><span>Terbongkar</span></label>
+                </div>
+                <div class="side">
+                    <div class="parts" id="parts"></div>
+                    <p class="pdesc" id="pdesc" aria-live="polite"></p>
+                    <p class="pfact" id="pfact"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec" id="alur" data-g="jelajah" data-p="alur">
+            <h2>Input, proses, output: cara kerja komputer</h2>
+            <form class="aform" id="a-form">
+                <label>Ketik sesuatu (maks. 8 karakter)<input id="a-in" maxlength="8" value="Halo" autocomplete="off"
+                        spellcheck="false"></label>
+                <button class="btn" id="play" type="submit">Jalankan</button>
+            </form>
+            <div class="aflow" id="aflow">
+                <div class="ast" role="button" tabindex="0" aria-pressed="false">
+                    <h3><small>Tahap 1</small>Input</h3>
+                    <div class="abox" id="a-keys"></div>
+                    <div class="adev">Keyboard</div>
+                </div>
+                <i class="aar" aria-hidden="true"></i>
+                <div class="ast" role="button" tabindex="0" aria-pressed="false">
+                    <h3><small>Tahap 2</small>Proses</h3>
+                    <div class="abox" id="a-code"></div>
+                    <div class="adev">CPU dan RAM</div>
+                </div>
+                <i class="aar" aria-hidden="true"></i>
+                <div class="ast" role="button" tabindex="0" aria-pressed="false">
+                    <h3><small>Tahap 3</small>Output</h3>
+                    <div class="abox mon" id="a-out"></div>
+                    <div class="adev">Monitor</div>
+                </div>
+            </div>
+            <div class="adesc">
+                <p id="adesc" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="dark" id="interaksi" data-g="jelajah" data-p="interaksi">
+            <h2>Interaksi manusia dan komputer</h2>
+            <div class="lay">
+                <div class="lay-stack" id="lay" role="group" aria-label="Lapisan interaksi"></div>
+                <div class="lay-side">
+                    <p id="lay-intro"></p>
+                    <p class="lay-cap" id="lay-cap" aria-live="polite"></p>
+                    <div class="lay-k" id="lay-k"></div>
+                    <button class="btn" id="lay-go" type="button">Kirim perintah</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec" id="gui" data-g="praktik" data-p="gui">
+            <h2>GUI: antarmuka dengan elemen grafis</h2>
+            <p class="whint" id="gui-intro"></p>
+            <div class="guix">
+                <div class="gwin" id="win" role="group" aria-label="Contoh jendela aplikasi">
+                    <div class="gbar">Dokumen baru</div>
+                    <div class="gmenu" data-g="menu">
+                        <div class="gm-i"><button type="button" id="gfile">File</button>
+                            <div class="gdrop" id="gdrop" hidden><button type="button">New</button><button
+                                    type="button">Open</button><button type="button">Save</button></div>
+                        </div>
+                        <button type="button">Edit</button><button type="button">View</button>
+                    </div>
+                    <div class="gtool">
+                        <button type="button" data-g="ikon" aria-label="Folder"><svg viewBox="0 0 24 24" width="22"
+                                height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            </svg></button>
+                        <button type="button" data-g="ikon" aria-label="Tempat sampah"><svg viewBox="0 0 24 24"
+                                width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3" />
+                            </svg></button>
+                        <button type="button" data-g="ikon" aria-label="Pengaturan"><svg viewBox="0 0 24 24" width="22"
+                                height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
+                            </svg></button>
+                    </div>
+                    <div class="gform">
+                        <label>Nama<input type="text" data-g="textbox" placeholder="Ketik namamu"></label>
+                        <fieldset data-g="radio">
+                            <legend>Jenis kelamin</legend>
+                            <label><input type="radio" name="jk"> Laki-laki</label><label><input type="radio" name="jk">
+                                Perempuan</label>
+                        </fieldset>
+                        <fieldset data-g="checkbox">
+                            <legend>Hobi</legend>
+                            <label><input type="checkbox"> Musik</label><label><input type="checkbox">
+                                Film</label><label><input type="checkbox"> Game</label><label><input type="checkbox">
+                                Olahraga</label>
+                        </fieldset>
+                        <div class="gact"><button type="button" class="gb" data-g="button">Save</button><button
+                                type="button" class="gb ghost" data-g="button">Cancel</button></div>
+                        <div class="gdlg" data-g="dialog"><b>Simpan perubahan?</b><span><button type="button"
+                                    class="gb">OK</button><button type="button" class="gb ghost">Batal</button></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gside">
+                    <div class="glist" id="glist" role="group" aria-label="Elemen GUI"></div>
+                    <p id="gdesc" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec" id="lab" data-g="praktik" data-p="lab">
+            <h2>Lab: kelompokkan komponen</h2>
+            <p class="whint">Seret komponen ke zonanya. Di layar sentuh: ketuk komponen, lalu ketuk zonanya.</p>
+            <div class="labbar">
+                <span id="lab-sc" aria-live="polite"></span>
+                <button class="btn" id="lab-new" type="button">Acak ulang</button>
+            </div>
+            <div class="cloud" id="cloud"></div>
+            <div class="zones" id="zones"></div>
+            <p id="lab-fb" aria-live="polite"></p>
+        </section>
+
+        <section class="sec" id="dalam" data-g="belajar" data-p="dalam">
+            <h2>Pendalaman: melengkapi materi buku</h2>
+            <p class="whint">Label Materi buku berasal dari buku. Pendalaman dan Catatan berasal dari sumber lain yang
+                dicantumkan di tab Sumber.</p>
+            <div id="dal"></div>
+        </section>
+
+        <section class="sec" id="ringkas" data-g="belajar" data-p="ringkas">
+            <h2>Ringkasan materi</h2>
+            <dl class="rsm" id="rsm"></dl>
+        </section>
+
+        <section class="sec" id="kuis" data-g="uji" data-p="kuis">
+            <h2>Uji pemahamanmu</h2>
+            <div class="quiz" id="quiz" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer class="foot">
+        <p>System Computer, media pembelajaran sistem komputer.</p>
+        <p class="foot__by"><span>SMAN 5 Surabaya</span><span>Kelas X-7</span><span>Muhammad Rohmatan
+                (21)</span><span>Muhammad Indratanaya (19)</span></p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="1helper.js"></script>
+    <script src="2model.js"></script>
+    <script src="script.js"></script>
+    <script src="Materi.js"></script>
+    <script src="model.js"></script>
+    <script src="pendalaman.js"></script>
+    <script src="fx.js"></script>
+    <script src="extra.js"></script>
+    <script src="contoh.js"></script>
+    <script src="ux.js"></script>
+</body>
+
+</html>
