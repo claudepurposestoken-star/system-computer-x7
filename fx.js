@@ -21,8 +21,8 @@
         uji: '<path d="M4 12l5 5L20 6"/>'
     };
     var GN = { beranda: 'Beranda', belajar: 'Belajar', jelajah: 'Jelajah', praktik: 'Praktik', uji: 'Uji' };
-    var SN = { sistem: 'Tiga unsur', jenis: 'Jenis komputer', ringkas: 'Ringkasan', dalam: 'Pendalaman', ilustrasi: 'Bongkar 3D', alur: 'Alur kerja', interaksi: 'Interaksi', gui: 'GUI', lab: 'Lab', kuis: 'Kuis' };
-    var DS = { belajar: 'Tiga unsur, jenis komputer, pendalaman, dan ringkasan.', jelajah: 'Bongkar komponen 3D, alur kerja, interaksi.', praktik: 'Coba jendela GUI dan susun komponen di Lab.', uji: 'Soal acak untuk mengecek pemahamanmu.' };
+    var SN = { sistem: 'Tiga unsur', jenis: 'Jenis komputer', ringkas: 'Ringkasan', dalam: 'Pendalaman', ilustrasi: 'Bongkar 3D', alur: 'Alur kerja', interaksi: 'Interaksi', gui: 'GUI', lab: 'Lab', bengkel: 'Game', kuis: 'Kuis' };
+    var DS = { belajar: 'Tiga unsur, jenis komputer, pendalaman, dan ringkasan.', jelajah: 'Bongkar komponen 3D, alur kerja, interaksi.', praktik: 'Coba jendela GUI, susun komponen di Lab, dan main Kurir Data.', uji: 'Soal acak untuk mengecek pemahamanmu.' };
     var main = d.querySelector('main'), pages = [], grp = {}, cur = '', first = true;
     var svg = function (p) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + p + '</svg>'; };
     d.querySelectorAll('main > [data-p]').forEach(function (s) {

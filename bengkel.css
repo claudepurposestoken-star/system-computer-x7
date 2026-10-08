@@ -1,0 +1,161 @@
+/* bengkel.css: game Kurir Data. Token situs (--ink, --cream, --teal, --d, --b), warna papan dibaca dari tone.css */
+.bk-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 0 20px
+}
+
+.bk-prog {
+    font: 900 26px/1 var(--d);
+    letter-spacing: .04em;
+    text-transform: uppercase
+}
+
+.bk-sm {
+    margin-top: 12px;
+    font-size: 15px;
+    color: var(--mut);
+    line-height: 1.5;
+    text-wrap: pretty
+}
+
+.kd-wrap {
+    position: relative;
+    width: min(100%, 640px);
+    border-radius: var(--r);
+    background: var(--deep, #274f82);
+    overflow: hidden
+}
+
+.kd-cv {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 520 / 460;
+    touch-action: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none
+}
+
+.kd-ov {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 14px;
+    padding: clamp(16px, 4vw, 32px);
+    background: rgba(12, 15, 14, .86);
+    color: var(--cream);
+    text-align: center
+}
+
+.kd-ov[hidden] {
+    display: none
+}
+
+.kd-ov h3 {
+    font: 900 clamp(44px, 9vw, 72px)/.95 var(--d);
+    text-transform: uppercase
+}
+
+.kd-ov p {
+    max-width: 40ch;
+    font-size: 16px;
+    line-height: 1.5;
+    text-wrap: pretty
+}
+
+.kd-ov .btn {
+    background: var(--teal);
+    color: var(--ink)
+}
+
+.kd-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px
+}
+
+.kd-steps span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--ink);
+    font: 800 15px var(--b)
+}
+
+.kd-steps span::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background: var(--c);
+    border: 2px solid var(--ink)
+}
+
+.kd-sum {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 28px
+}
+
+.kd-sum b {
+    display: block;
+    font: 900 clamp(40px, 8vw, 60px)/.95 var(--d)
+}
+
+.kd-sum span {
+    font-weight: 700;
+    font-size: 15px;
+    opacity: .85
+}
+
+.bk-stamp {
+    padding: 4px 18px;
+    border: 3px solid var(--teal);
+    border-radius: 8px;
+    color: var(--teal);
+    font: 900 34px/1.1 var(--d);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    rotate: -5deg;
+    animation: bkstamp .45s cubic-bezier(.2, 1.4, .4, 1) backwards
+}
+
+.bk-st {
+    display: inline-flex;
+    gap: 6px
+}
+
+.bk-st i {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--cream)
+}
+
+.bk-st i.on {
+    background: var(--teal);
+    border-color: var(--teal)
+}
+
+@keyframes bkstamp {
+    from {
+        opacity: 0;
+        scale: 1.7
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bk-stamp {
+        animation: none
+    }
+}
